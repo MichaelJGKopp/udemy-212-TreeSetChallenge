@@ -12,6 +12,10 @@ public class BookingAgent {
 
     bookSeat(theatre, 'A', 3);
     bookSeat(theatre, 'A', 3);
+
+    bookSeat(theatre, 'B', 1);
+    bookSeat(theatre, 'B', 11);
+    bookSeat(theatre, 'M', 1);
   }
 
   private static void bookSeat(Theatre theatre, char row, int seatNo) {
