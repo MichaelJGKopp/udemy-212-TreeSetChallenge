@@ -16,6 +16,8 @@ public class BookingAgent {
     bookSeat(theatre, 'B', 1);
     bookSeat(theatre, 'B', 11);
     bookSeat(theatre, 'M', 1);
+
+    bookSeats(theatre, 4, 'B', 3, 10); // booking contiguous seats
   }
 
   private static void bookSeat(Theatre theatre, char row, int seatNo) {
@@ -29,4 +31,21 @@ public class BookingAgent {
     }
   }
 
+  private static void bookSeats(Theatre theatre, int tickets,
+                                char minRow, int minSeat, int maxSeat) {
+    bookSeats(theatre, tickets, minRow, minRow, minSeat, maxSeat);
+  }
+
+  private static void bookSeats(Theatre theatre, int tickets,
+                                char minRow, char maxRow, int minSeat, int maxSeat) {
+
+    var seats = theatre.reserveSeats(tickets, minRow, maxRow, minSeat, maxSeat);
+    if (seats != null) {
+      System.out.println("Congratulations! Your reserved seats are " + seats);
+      theatre.printSeatMap();
+    } else {
+      System.out.println("Sorry! No matching contiguous seats in rows: " +
+        minRow + " - " + maxRow);
+    }
+  }
 }
